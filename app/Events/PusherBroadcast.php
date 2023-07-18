@@ -31,7 +31,7 @@ class PusherBroadcast implements ShouldBroadcast
      */
     public function broadcastOn(): array
     {
-        return ['public'];
+        return [request()->channel ?? 'public'];
     }
 
     public function broadcastAs(): string

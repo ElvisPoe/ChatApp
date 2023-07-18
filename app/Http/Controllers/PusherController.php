@@ -15,7 +15,7 @@ class PusherController extends Controller
 
     public function broadcast(Request $request)
     {
-        broadcast(new PusherBroadcast($request->get('message'), $request->channel))->toOthers();
+        broadcast(new PusherBroadcast($request->get('message')))->toOthers();
 
         return view('broadcast', ['message' => $request->get('message')]);
     }

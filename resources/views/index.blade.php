@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ChatApp</title>
+        <title>ChatApp - {{ request()->channel ?? 'Public'}}</title>
 
         <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -39,9 +39,9 @@
                         </div>
                         <div class="right">
                             @if(request()->has('channel'))
-                            <a href="/" class="text-white"><p>Back to Public</p></a>
+                                <a href="/" class="text-white"><p>Back to Public</p></a>
                             @else
-                                <a href="/?channel={{ $channel }}" class="text-white"><p>Join New</p></a>
+                                <a target="_blank" href="/?channel={{ $channel }}" class="text-white"><p>Join New</p></a>
                             @endif
                         </div>
                     </div>
@@ -61,7 +61,7 @@
     </body>
     <script>
         const pusher = new Pusher('{{config('broadcasting.connections.pusher.key')}}', { cluster: 'eu' });
-        const channel = pusher.subscribe('public');
+        const channel = pusher.subscribe('{{ app('request')->channel ?? "public" }}');
 
         // Receive messages
         channel.bind('chat', function(data) {
@@ -87,6 +87,7 @@
                 data: {
                     _token: '{{ csrf_token() }}',
                     message: $('#message').val(),
+                    channel: '{{ app('request')->channel ?? "public" }}',
                 },
             }).done(function(res) {
                 $('.messages > .message').last().after(res);
