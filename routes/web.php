@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PusherController;
+use App\Http\Controllers\MessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,7 @@ use App\Http\Controllers\PusherController;
 |
 */
 
-Route::get('/', [PusherController::class, 'index']);
-Route::post('/broadcast', [PusherController::class, 'broadcast']);
-Route::post('/receive', [PusherController::class, 'receive']);
+Route::get('/', [MessagesController::class, 'index']);
+Route::get('/new-room', [MessagesController::class, 'newRoom']);
+Route::post('/broadcast', [MessagesController::class, 'broadcast']);
+Route::post('/receive', [MessagesController::class, 'receive']);

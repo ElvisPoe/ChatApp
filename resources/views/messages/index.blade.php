@@ -41,12 +41,12 @@
                             @if(request()->has('channel'))
                                 <a href="/" class="text-white"><p>Back to Public</p></a>
                             @else
-                                <a target="_blank" href="/?channel={{ $channel }}" class="text-white"><p>Join New</p></a>
+                                <a target="_blank" href="/new-room" class="text-white"><p>Join New</p></a>
                             @endif
                         </div>
                     </div>
                     <div class="messages">
-                        @include('receive', ['message' => 'Welcome! Write anything you want. Everyone in this room will receive it.'])
+                        @include('messages.receive', ['message' => 'Welcome! Write anything you want. Everyone in this room will receive it.'])
                     </div>
                     <div class="bottom">
                         <form>
