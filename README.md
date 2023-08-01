@@ -1,4 +1,4 @@
-![Alt text](/public/chatapplogo.png?raw=true "Title")
+![Logo](/public/chatapplogo.png?raw=true "ChatApp Logo")
 
 ## About ChatApp
 
