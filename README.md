@@ -12,3 +12,12 @@
 - A simple chatting application with a public server.
 - You can create new rooms for private chatting.
 - Messages are encrypted/decrypted before send and received
+
+### Screenshots
+![Alt text](/public/screenshot1.png?raw=true "Title")
+
+![Alt text](/public/screenshot2.png?raw=true "Title")
+
+![Alt text](/public/screenshot3.png?raw=true "Title")
+
+![Alt text](/public/screenshot4.png?raw=true "Title")
